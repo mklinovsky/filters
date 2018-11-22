@@ -12,7 +12,7 @@ export class AttributeComponent implements OnInit {
   @Input() eventName: string;
   @Input() attribute: EventAttribute;
   @Output() attributeDeleted = new EventEmitter<EventAttribute>();
-  
+
   attributeNames: string[];
   numberOperators: any[];
   stringOperators: any[];

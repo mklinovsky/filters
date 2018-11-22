@@ -22,7 +22,8 @@ export class EventDataService {
     return [
       'price',
       'timestamp',
-      'index'
+      'index',
+      'count'
     ];
   }
 

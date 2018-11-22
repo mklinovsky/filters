@@ -33,7 +33,7 @@ export class CustomerFilterContainerComponent implements OnInit {
     const indexToDelete = this.filter.steps.indexOf(step);
     if (indexToDelete > -1) {
       this.filter.steps = this.filter.steps
-        .filter((step, index) => index !== indexToDelete);
+        .filter((item, index) => index !== indexToDelete);
     }
   }
 

@@ -1,4 +1,4 @@
-## Time - 5h
+## Time spent - 7h
 
 # Filters
 
