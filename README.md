@@ -1,5 +1,7 @@
 ## Time spent - 8h
 
+## [Demo](https://filters-84702.firebaseapp.com/)
+
 # Filters
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
