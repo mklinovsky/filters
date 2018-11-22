@@ -47,6 +47,18 @@
       (change)="onValueChange($event)"
     >
   </mat-form-field>
+
+  <ng-container *ngIf="showRangeValue">
+    <span class="range-delimiter">and</span>
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        [value]="attribute.rangeValue"
+        (change)="onRangeValueChange($event)"
+      >
+    </mat-form-field>
+  </ng-container>
 </ng-container>
 <button
   mat-button

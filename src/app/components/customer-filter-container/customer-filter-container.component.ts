@@ -38,7 +38,14 @@ export class CustomerFilterContainerComponent implements OnInit {
   }
 
   onStepCopied(step: FilterStep) {
-    console.log(step);
-    this.filter.steps = [...this.filter.steps, step];
+    this.filter.steps = [...this.filter.steps, this.copyStep(step)];
+  }
+
+  private copyStep(step: FilterStep): FilterStep {
+    const newStep = new FilterStep();
+    newStep.eventName = step.eventName;
+    newStep.attributes = step.attributes;
+
+    return newStep;
   }
 }
