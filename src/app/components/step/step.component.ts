@@ -11,6 +11,7 @@ import { EventAttribute } from 'src/app/models/event-attribute';
 export class StepComponent implements OnInit {
   @Input() step: FilterStep;
   @Input() order: number;
+  
   title: string;
 
   constructor() { }
@@ -29,6 +30,10 @@ export class StepComponent implements OnInit {
   }
 
   onDeleteAttribute(attribute: EventAttribute) {
-    this.step.attributes = this.step.attributes.filter(a => a.name !== attribute.name);
+    const indexToDelete = this.step.attributes.indexOf(attribute);
+    if (indexToDelete > -1) {
+      this.step.attributes = this.step.attributes
+        .filter((attr, index) => index !== indexToDelete);
+    }
   }
 }
