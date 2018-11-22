@@ -1,16 +1,18 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
 import { EventDataService } from 'src/app/services/event-data.service';
 import { EventAttribute } from 'src/app/models/event-attribute';
 
 @Component({
   selector: 'app-attribute',
   templateUrl: './attribute.component.html',
-  styleUrls: ['./attribute.component.scss']
+  styleUrls: ['./attribute.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AttributeComponent implements OnInit {
   @Input() eventName: string;
   @Input() attribute: EventAttribute;
   @Output() attributeDeleted = new EventEmitter<EventAttribute>();
+  
   attributeNames: string[];
   numberOperators: any[];
   stringOperators: any[];

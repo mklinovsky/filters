@@ -1,10 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { EventDataService } from 'src/app/services/event-data.service';
 
 @Component({
   selector: 'app-event-select',
   templateUrl: './event-select.component.html',
-  styleUrls: ['./event-select.component.scss']
+  styleUrls: ['./event-select.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventSelectComponent implements OnInit {
   @Output() eventSelected = new EventEmitter<string>();
