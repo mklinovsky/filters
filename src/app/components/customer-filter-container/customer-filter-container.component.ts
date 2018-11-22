@@ -28,4 +28,17 @@ export class CustomerFilterContainerComponent implements OnInit {
   onAddFunnel() {
     this.filter.steps = [...this.filter.steps, new FilterStep()];
   }
+
+  onStepDeleted(step: FilterStep) {
+    const indexToDelete = this.filter.steps.indexOf(step);
+    if (indexToDelete > -1) {
+      this.filter.steps = this.filter.steps
+        .filter((step, index) => index !== indexToDelete);
+    }
+  }
+
+  onStepCopied(step: FilterStep) {
+    console.log(step);
+    this.filter.steps = [...this.filter.steps, step];
+  }
 }

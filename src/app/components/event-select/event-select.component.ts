@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy, Input } from '@angular/core';
 import { EventDataService } from 'src/app/services/event-data.service';
 
 @Component({
@@ -8,7 +8,9 @@ import { EventDataService } from 'src/app/services/event-data.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventSelectComponent implements OnInit {
+  @Input() initialValue: string
   @Output() eventSelected = new EventEmitter<string>();
+
   events: string[];
 
   constructor(

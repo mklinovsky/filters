@@ -1,6 +1,7 @@
 <mat-form-field>
   <mat-select
     placeholder="Select attribute"
+    [value]="attribute.name"
     (selectionChange)="onSelectionChange($event)"
   >
     <mat-option
@@ -16,6 +17,7 @@
   <mat-form-field>
     <mat-select
       placeholder="Operator"
+      [value]="attribute.operator"
       (selectionChange)="onOperatorChange($event)"
     >
       <mat-optgroup label="String">
@@ -41,15 +43,15 @@
     <input
       type="text"
       matInput
+      [value]="attribute.value"
       (change)="onValueChange($event)"
     >
   </mat-form-field>
-
-  <button
-    mat-button
-    color="accent"
-    (click)="onDeleteAttribute()"
-  >
-    <mat-icon>clear</mat-icon>
-  </button>
 </ng-container>
+<button
+  mat-button
+  color="accent"
+  (click)="onDeleteAttribute()"
+>
+  <mat-icon>clear</mat-icon>
+</button>

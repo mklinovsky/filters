@@ -1,29 +1,45 @@
-<div class="step-title">
-  <span>{{order}} STEP: {{title}}</span>
-</div>
-<div class="attributes-wrapper">
-  <div class="event-column">
-    <app-event-select (eventSelected)="onEventSelected($event)"></app-event-select>
-    <button
-      mat-button
-      color="accent"
-      *ngIf="!step.attributes.length && step.eventName"
-      (click)="onAddAttribute()"
+<div
+  class="step"  
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+>
+  <div class="step-title">
+    <span>{{order}} STEP: {{title}}</span>
+    <span
+      *ngIf="showControls"
+      class="step-controls"
     >
-      <mat-icon>add</mat-icon> Add an event attribute
-    </button>
+      <mat-icon (click)="onDeleteStep()">delete_outline</mat-icon>
+      <mat-icon (click)="onCopyStep()">filter_none</mat-icon>
+    </span>
   </div>
-  <div class="attributes-column">
-    <app-attribute
-      *ngFor="let attribute of step.attributes"
-      [attribute]="attribute"
-      (attributeDeleted)="onDeleteAttribute($event)"
-    ></app-attribute>
-    <button
-      mat-button
-      color="accent"
-      *ngIf="step.attributes.length"
-      (click)="onAddAttribute()"
-    >Refine more</button>
+  <div class="attributes-wrapper">
+    <div class="event-column">
+      <app-event-select
+        [initialValue]="step.eventName"
+        (eventSelected)="onEventSelected($event)"
+      ></app-event-select>
+      <button
+        mat-button
+        color="accent"
+        *ngIf="!step.attributes.length && step.eventName"
+        (click)="onAddAttribute()"
+      >
+        <mat-icon>add</mat-icon> Add an event attribute
+      </button>
+    </div>
+    <div class="attributes-column">
+      <app-attribute
+        *ngFor="let attribute of step.attributes"
+        [attribute]="attribute"
+        (attributeDeleted)="onDeleteAttribute($event)"
+      ></app-attribute>
+      <button
+        mat-button
+        color="accent"
+        *ngIf="step.attributes.length"
+        (click)="onAddAttribute()"
+      >Refine more</button>
+    </div>
   </div>
 </div>

@@ -11,6 +11,8 @@
       *ngFor="let step of filter.steps; index as i"
       [step]="step"
       [order]="i+1"
+      (stepDeleted)="onStepDeleted($event)"
+      (stepCopied)="onStepCopied($event)"
     ></app-step>
     <button
       class="add-funnel-button"

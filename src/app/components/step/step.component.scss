@@ -1,5 +1,7 @@
 .step-title {
   margin-bottom: 10px;
+  display: flex;
+  height: 20px;
 }
 
 .attributes-wrapper {
@@ -11,4 +13,17 @@
   margin-left: 20px;
   display: flex;
   flex-direction: column;
+}
+
+.step-controls {
+  cursor: pointer;
+  margin-left: auto;
+
+  mat-icon {
+    margin-left: 10px;
+  }
+}
+
+.step {
+  margin-bottom: 30px;
 }

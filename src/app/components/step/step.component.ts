@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { FilterStep } from 'src/app/models/filter-step';
 import { EventAttribute } from 'src/app/models/event-attribute';
 
@@ -11,8 +11,11 @@ import { EventAttribute } from 'src/app/models/event-attribute';
 export class StepComponent implements OnInit {
   @Input() step: FilterStep;
   @Input() order: number;
-  
+  @Output() stepDeleted = new EventEmitter<FilterStep>();
+  @Output() stepCopied = new EventEmitter<FilterStep>();
+
   title: string;
+  showControls: boolean;
 
   constructor() { }
 
@@ -35,5 +38,21 @@ export class StepComponent implements OnInit {
       this.step.attributes = this.step.attributes
         .filter((attr, index) => index !== indexToDelete);
     }
+  }
+
+  onDeleteStep() {
+    this.stepDeleted.emit(this.step);
+  }
+
+  onCopyStep() {
+    this.stepCopied.emit(this.step);
+  }
+
+  onMouseEnter() {
+    this.showControls = true;
+  }
+
+  onMouseLeave() {
+    this.showControls = false;
   }
 }

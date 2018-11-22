@@ -1,6 +1,11 @@
 export class EventAttribute {
   name: string;
-  operator: number;
+  operator: string;
   value: any;
   rangeValue: any;
+
+  constructor() {
+    this.value = '';
+    this.rangeValue = '';
+  }
 }
