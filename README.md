@@ -1,5 +1,3 @@
-## Time spent - 8h
-
 ## [Demo](https://filters-84702.firebaseapp.com/)
 
 # Filters
